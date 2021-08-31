@@ -14,9 +14,10 @@ pub mod bit {
 	/// Panics when position is higher than 7
 	/// 
 	/// # Examples
+    ///
 	/// ```
 	/// let x: u8 = 0b0000_0001;
-	/// let y: u8 = bit::get(x, 0);
+	/// let y: u8 = bytex::bit::get(x, 0);
 	/// assert_eq!(y, 1);
 	/// ```
 	pub fn get(target: u8, position: u8) -> u8 {
@@ -31,9 +32,10 @@ pub mod bit {
 	/// Panics when position is higher than 7
 	/// 
 	/// # Examples
+    ///
 	/// ```
-	/// let x: u8 = 0b0000_0000;
-	/// bit::set(x, 0);
+	/// let mut x: u8 = 0b0000_0000;
+	/// bytex::bit::set(&mut x, 0);
 	/// assert_eq!(x, 0b0000_0001);
 	/// ```
 	pub fn set(target: &mut u8, position: u8) {
@@ -48,9 +50,10 @@ pub mod bit {
 	/// Panics when position is higher than 7
 	/// 
 	/// # Examples
+    ///
 	/// ```
-	/// let x: u8 = 0b0000_0001;
-	/// bit::unset(x, 0);
+	/// let mut x: u8 = 0b0000_0001;
+	/// bytex::bit::unset(&mut x, 0);
 	/// assert_eq!(x, 0b0000_0000);
 	/// ```
 	pub fn unset(target: &mut u8, position: u8) {
@@ -65,9 +68,10 @@ pub mod bit {
 	/// Panics when position is higher than 7
 	/// 
 	/// # Examples
+    ///
 	/// ```
-	/// let x: u8 = 0b0000_0001;
-	/// bit::toggle(x, 0);
+	/// let mut x: u8 = 0b0000_0001;
+	/// bytex::bit::toggle(&mut x, 0);
 	/// assert_eq!(x, 0b0000_0000);
 	/// ```
 	pub fn toggle(target: &mut u8, position: u8) {
@@ -82,9 +86,10 @@ pub mod bit {
 	/// Panics when position is higher than 7 or at unexpected bit values (not 0 or 1)
 	/// 
 	/// # Examples
+    ///
 	/// ```
 	/// let x: u8 = 0b0000_0001;
-	/// let y: char = bit::as_char(x, 0);
+	/// let y: char = bytex::bit::as_char(x, 0);
 	/// assert_eq!(y, '1');
 	/// ```
 	pub fn as_char(target: u8, position: u8) -> char {
@@ -179,9 +184,9 @@ pub mod bit {
 ///
 /// # Examples
 ///
-/// ```rust
+/// ```
 //// let x: u8 = 0b0000_0001;
-//// assert_eq("0b00000001", repr(x));
+//// assert_eq("0b00000001", bytex::repr(x));
 /// ```
 pub fn repr(byte: u8) -> String {
 	let mut array: [char; 10] = ['\0'; 10];
