@@ -4,7 +4,7 @@
 pub mod bit {
 	//! Bit manipulations
 
-	/// Panics if position is higher than 7
+	/// Panics if position is higher than 7, this function is private and for internal use.
 	fn check_position(position: u8) {
 		if position > 7 {
 			panic!("position cannot be higher than 7");
@@ -26,7 +26,7 @@ pub mod bit {
 	/// ```
 	pub fn get(target: u8, position: u8) -> u8 {
 		check_position(position);
-		(target >> position) & 1
+		(target >> position) & 1_u8
 	}
 
 	/// Set bit in byte
