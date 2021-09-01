@@ -1,4 +1,6 @@
+#![no_std]
 pub mod bit {
+	//! Bit manipulations
 
 	/// Panics if position is higher than 7
 	fn check_position(position: u8) {
@@ -180,30 +182,30 @@ pub mod bit {
 	}
 }
 
-/// Represents byte as String in the format '0bxxxxxxxx'
+/// Represents byte as [char; 10] in the format '0bxxxxxxxx' suitable for printing
 ///
 /// # Examples
 ///
 /// ```
-/// let x: u8 = 0b0000_0001;
-/// assert_eq("0b00000001", bytex::repr(x));
+/// let x: u8 = 0b1000_0010;
+/// assert_eq!(['0','b','1','0','0','0','0','0','1','0'], bytex::repr(x));
 /// ```
-pub fn repr(byte: u8) -> String {
+pub fn repr(byte: u8) -> [char; 10] {
 	let mut array: [char; 10] = ['\0'; 10];
 
 	for position in 0..=7 {
-		array[position] = bit::as_char(byte, position as u8);
+		array[7 - position + 2] = bit::as_char(byte, position as u8);
 	}
 
-	array[8] = 'b';
-	array[9] = '0';
+	array[1] = 'b';
+	array[0] = '0';
 
-	array.iter().rev().collect()
+	array
 }
 
 #[test]
 fn test_repr() {
-	let x: u8 = 0b1000_0000;
+	let x: u8 = 0b1000_0010;
 
-	assert_eq!("0b10000000", repr(x));
+	assert_eq!(['0','b','1','0','0','0','0','0','1','0'], repr(x));
 }
