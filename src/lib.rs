@@ -6,7 +6,7 @@ pub mod bit {
 
 	/// Panics if position is higher than 7, this function is private and for internal use.
 	fn check_position(position: u8) {
-		if position > 7 {
+		if position > 7_u8 {
 			panic!("position cannot be higher than 7");
 		}
 	}
@@ -44,7 +44,7 @@ pub mod bit {
 	/// ```
 	pub fn set(target: &mut u8, position: u8) {
 		check_position(position);
-		*target |= 1 << position;
+		*target |= 1_u8 << position;
 	}
 
 	/// Unset bit in byte
@@ -62,7 +62,7 @@ pub mod bit {
 	/// ```
 	pub fn unset(target: &mut u8, position: u8) {
 		check_position(position);
-		*target &= !(1 << position);
+		*target &= !(1_u8 << position);
 	}
 
 	/// Toggle bit in byte
@@ -80,7 +80,7 @@ pub mod bit {
 	/// ```
 	pub fn toggle(target: &mut u8, position: u8) {
 		check_position(position);
-		*target ^= 1 << position;
+		*target ^= 1_u8 << position;
 	}
 
 	/// Returns bit represented as char e.g '0' or '1'
@@ -196,7 +196,7 @@ pub fn repr(byte: u8) -> [char; 10] {
 	let mut array: [char; 10] = ['\0'; 10];
 
 	for position in 0..=7 {
-		array[7 - position + 2] = bit::as_char(byte, position as u8);
+		array[(7_u8 - position + 2_u8) as usize] = bit::as_char(byte, position as u8);
 	}
 
 	array[1] = 'b';
