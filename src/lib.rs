@@ -185,8 +185,8 @@ pub mod bit {
 /// # Examples
 ///
 /// ```
-//// let x: u8 = 0b0000_0001;
-//// assert_eq("0b00000001", bytex::repr(x));
+/// let x: u8 = 0b0000_0001;
+/// assert_eq("0b00000001", bytex::repr(x));
 /// ```
 pub fn repr(byte: u8) -> String {
 	let mut array: [char; 10] = ['\0'; 10];
