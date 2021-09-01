@@ -1,4 +1,6 @@
+#![warn(missing_docs)]
 #![no_std]
+//! Collection of functions for easier 8 bit byte manipulation and representation
 pub mod bit {
 	//! Bit manipulations
 
