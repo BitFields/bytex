@@ -197,7 +197,7 @@ pub fn repr(byte: u8) -> [char; 10] {
     let mut array: [char; 10] = ['\0'; 10];
 
     for position in 0..=7 {
-        array[(7_u8 - position + 2_u8) as usize] = bit::as_char(byte, position as u8);
+        array[(9_u8 - position) as usize] = bit::as_char(byte, position as u8);
     }
 
     array[1] = 'b';
