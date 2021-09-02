@@ -57,6 +57,10 @@ pub mod bit {
 
     /// Set bit in byte
     ///
+    /// # Returns
+    ///
+    /// *target - &mut u8
+    ///
     /// # Panics
     ///
     /// Panics when position is higher than 7
@@ -68,9 +72,10 @@ pub mod bit {
     /// bytex::bit::set(&mut x, 0);
     /// assert_eq!(x, 0b0000_0001);
     /// ```
-    pub fn set(target: &mut u8, position: u8) {
+    pub fn set(target: &mut u8, position: u8) -> u8 {
         check_position(position);
         *target |= 1_u8 << position;
+        *target
     }
 
     /// Unset bit in byte
@@ -129,6 +134,46 @@ pub mod bit {
             0 => '0',
             1 => '1',
             _ => panic!("Expected 0 or 1"),
+        }
+    }
+}
+
+pub mod register {
+    //! Helper functions for AVR register access
+    
+    /// Writes directly into register
+    /// 
+    /// # Examples
+    /// 
+    /// ``` no_run
+    /// use bytex::bit::set;
+    /// use bytex::register::{read, write};
+    /// 
+    /// const DDRD: *mut u8 = 0x2A as *mut u8;
+    /// const DDRD0: u8 = 0;
+    /// write(DDRD, set(&mut read(DDRD), DDRD0));
+    /// ```
+    ///
+    pub fn write(address: *mut u8, byte: u8) {
+        unsafe {
+            core::ptr::write_volatile(address, byte);
+        }
+    }
+    
+    /// Reads register
+    /// 
+    /// # Examples
+    /// 
+    /// ``` no_run
+    /// use bytex::register::{read};
+    /// 
+    /// const DDRD: *mut u8 = 0x2A as *mut u8;
+    /// let ddrd = read(DDRD);
+    /// ```
+    ///
+    pub fn read(address: *mut u8) -> u8 {
+        unsafe {
+            core::ptr::read_volatile(address)
         }
     }
 }
