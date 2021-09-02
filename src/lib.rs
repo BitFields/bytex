@@ -59,7 +59,7 @@ pub mod bit {
     ///
     /// # Returns
     ///
-    /// dereferenced 'target' param( *target )
+    /// dereferenced 'target' param ( *target )
     ///
     /// # Panics
     ///
