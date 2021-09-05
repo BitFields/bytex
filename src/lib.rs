@@ -78,7 +78,7 @@ pub mod bit {
         *target
     }
 
-    /// Unset bit in byte
+    /// Unset bit in byte - returns target
     ///
     /// # Panics
     ///
@@ -91,9 +91,10 @@ pub mod bit {
     /// bytex::bit::unset(&mut x, 0);
     /// assert_eq!(x, 0b0000_0000);
     /// ```
-    pub fn unset(target: &mut u8, position: u8) {
+    pub fn unset(target: &mut u8, position: u8) -> u8 {
         check_position(position);
         *target &= !(1_u8 << position);
+        *target
     }
 
     /// Toggle bit in byte
