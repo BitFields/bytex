@@ -59,7 +59,7 @@ pub mod bit {
     ///
     /// # Returns
     ///
-    /// dereferenced 'target' param ( *target )
+    ///  *target
     ///
     /// # Panics
     ///
@@ -78,7 +78,11 @@ pub mod bit {
         *target
     }
 
-    /// Unset bit in byte - returns target
+    /// Unset bit in byte
+    ///
+    /// # Returns
+    ///
+    ///  *target
     ///
     /// # Panics
     ///
@@ -99,6 +103,10 @@ pub mod bit {
 
     /// Toggle bit in byte
     ///
+    /// # Returns
+    ///
+    ///  *target
+    ///
     /// # Panics
     ///
     /// Panics when position is higher than 7
@@ -110,9 +118,10 @@ pub mod bit {
     /// bytex::bit::toggle(&mut x, 0);
     /// assert_eq!(x, 0b0000_0000);
     /// ```
-    pub fn toggle(target: &mut u8, position: u8) {
+    pub fn toggle(target: &mut u8, position: u8) -> u8 {
         check_position(position);
         *target ^= 1_u8 << position;
+        *target
     }
 
     /// Returns bit represented as char e.g '0' or '1'
@@ -142,7 +151,7 @@ pub mod bit {
 pub mod register {
     //! Helper functions for AVR register access
     
-    /// Writes directly into register
+    /// Writes directly into register  - unsafe
     /// 
     /// # Examples
     /// 
@@ -161,7 +170,7 @@ pub mod register {
         }
     }
     
-    /// Reads register
+    /// Reads register - unsafe
     /// 
     /// # Examples
     /// 
