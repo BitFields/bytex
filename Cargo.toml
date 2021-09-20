@@ -3,6 +3,9 @@ name = "bytex"
 version = "0.1.0"
 authors = ["AMS <josiphaboic@gmail.com>"]
 edition = "2018"
+description = "8bit helper functions, mostly for AVR"
+repository = "https://github.com/BitFields/bytex.git"
+keywords = ["8bit", "avr", "byte"]
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
