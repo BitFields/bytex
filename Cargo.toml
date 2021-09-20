@@ -6,6 +6,7 @@ edition = "2018"
 description = "8bit helper functions, mostly for AVR"
 repository = "https://github.com/BitFields/bytex.git"
 keywords = ["8bit", "avr", "byte"]
+license = "Apache-2.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
