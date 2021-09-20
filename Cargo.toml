@@ -1,6 +1,6 @@
 [package]
 name = "bytex"
-version = "0.1.0"
+version = "0.1.1"
 authors = ["AMS <josiphaboic@gmail.com>"]
 edition = "2018"
 description = "8bit helper functions, mostly for AVR"
