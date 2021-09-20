@@ -1,4 +1,4 @@
-# bytex
+# bytex - 8bit no_std helper functions
 
 ## bytex::repr
 
