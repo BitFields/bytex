@@ -10,3 +10,7 @@ license = "Apache-2.0"
 # See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
 
 [dependencies]
+
+
+[badges]
+codecov = { repository = "https://github.com/BitFields/bytex", branch = "master", service = "github" }
