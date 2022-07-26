@@ -162,6 +162,8 @@ pub mod register {
     /// const DDRD: *mut u8 = 0x2A as *mut u8;
     /// const DDRD0: u8 = 0;
     /// write(DDRD, set(&mut read(DDRD), DDRD0));
+    /// The above code first reads DDRD as &mut then sets 0th bit
+    /// and finally writes to DDRD register
     /// ```
     ///
     pub fn write(address: *mut u8, byte: u8) {
