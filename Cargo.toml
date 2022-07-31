@@ -2,7 +2,7 @@
 name = "bytex"
 version = "0.1.1"
 authors = ["AMS <josiphaboic@gmail.com>"]
-edition = "2018"
+edition = "2021"
 description = "8bit helper functions, mostly for AVR"
 repository = "https://github.com/BitFields/bytex.git"
 keywords = ["8bit", "avr", "byte"]
