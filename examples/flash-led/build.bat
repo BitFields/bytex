@@ -1,0 +1,1 @@
+cargo build -Z build-std=core --target atmega328p.json --release
