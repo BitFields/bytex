@@ -21,6 +21,8 @@ fn setup() {
 #[no_mangle]
 pub extern fn main() {
 
+    // DDRD = DDRD | 1 << DDD7;
+
     setup();
 
     let (mut counter0, mut counter1, mut counter2) = 0u8;
